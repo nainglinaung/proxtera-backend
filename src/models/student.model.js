@@ -11,6 +11,6 @@ const UploadSchema = new Schema({
 },{timestamps : true});
 
 
-const NoteModel = mongoose.model("upload", UploadSchema);
+const NoteModel = mongoose.model("student", UploadSchema);
 
 export default NoteModel;

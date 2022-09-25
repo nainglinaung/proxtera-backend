@@ -1,12 +1,13 @@
 const studentRouter = require("express").Router();
 import studentController from '../controllers/student.controller'
 import catchAsync from '../middleware/catchAsync';
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 
+let {importDoc} = studentController;
 
-let {upload} = studentController;
-
-studentRouter.post('/',catchAsync(upload));
+studentRouter.post('/',upload.single("spreadsheet"),catchAsync(importDoc));
 
 
 

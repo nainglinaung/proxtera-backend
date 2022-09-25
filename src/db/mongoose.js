@@ -9,10 +9,11 @@ const { NODE_ENV, DB} = process.env;
 
 const options = {
   useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
+  // useCreateIndex: true,
+  // useFindAndModify: false,
   useUnifiedTopology: true,
 };
+
 
 mongoose
   .connect(DB, options)
@@ -20,6 +21,7 @@ mongoose
     logger.info("MongoDB is connected")
   })
   .catch((err) => {
+    console.log(err)
     logger.error("MongoDB connection unsuccessful")
     DEBUG();
     // console.log(err);

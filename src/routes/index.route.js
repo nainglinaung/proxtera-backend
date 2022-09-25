@@ -4,7 +4,7 @@ import studentRouter from "./student.route";
 
 
 
-Router.use("/upload",studentRouter);
+Router.use("/student",studentRouter);
 
 
 
