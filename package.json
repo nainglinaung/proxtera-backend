@@ -9,7 +9,7 @@
     "clean": "rm -rf .nyc_output build coverage && mkdir build",
     "dev": "cross-env DEBUG=dev nodemon --ignore 'uploads/*' --exec babel-node src/index.js",
     "generate": "cross-env DEBUG=dev nodemon --ignore 'uploads/*' --exec babel-node generateXLSX.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "@babel/node": "^7.10.1",
     "@babel/preset-env": "^7.10.1",
     "@faker-js/faker": "^7.5.0",
-    "eslint": "^8.10.0"
+    "eslint": "^8.10.0",
+    "mocha": "^10.0.0"
   }
 }
