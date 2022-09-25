@@ -1,10 +1,10 @@
 const Router = require("express").Router();
 
-import uploadRouter from "./upload.route";
+import studentRouter from "./student.route";
 
 
 
-Router.use("/upload",uploadRouter);
+Router.use("/upload",studentRouter);
 
 
 
