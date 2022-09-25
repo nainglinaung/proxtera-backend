@@ -3,7 +3,7 @@ import {writeFile,utils} from "xlsx";
 
 let run = async() => {
 
-    let rows = Array(1000).fill({});
+    let rows = Array(1000000).fill({});
     
     rows = rows.map(() => {
 
