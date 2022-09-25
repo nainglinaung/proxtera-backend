@@ -5,8 +5,9 @@ export default {
   importDoc: async (req, res) => {
     let file = req.file;
     let workbook = await readFile(file.path);
-    var sheets = workbook.SheetNames;
-    let InvalidRecords = []
+    let sheets = workbook.SheetNames;
+    let cleanCount = 0; 
+    let invalidRecords = []
     for (let sheet of sheets) {
       let sheetData = workbook.Sheets[sheet];
       let output  = utils.sheet_to_json(sheetData);
@@ -19,23 +20,21 @@ export default {
             if (record.Username && record.University && record.Email) {
               cleanRecords.push(record);
             } else {
-              missingRecords.push(record);
+              invalidRecords.push(record);
             }
         }
        
+        cleanCount += cleanRecords.length;
         let result = await StudentModel.insertMany(cleanRecords,{ordered:false,populate:"Array"});
-        return res.json({missingRecords, missingCount:missingRecords.length, cleanCount:cleanRecords.length});
-       
-      } catch(error) {
+     } catch(error) {
         console.error(error);
+        return res.status(400).json({status:"Error Happened"})
       }
     }
 
+    return res.json({invalidRecords, missingCount:invalidRecords.length, cleanCount});
+       
 
-    // let category = new StudentModel(req.body);
-    // let result = await category.save();
-    // let rows = await readXlsxFile(file.path,{schema});
-    return res.json({ "hello":"world"});
   },
 
 };
