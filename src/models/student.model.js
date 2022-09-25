@@ -5,12 +5,14 @@ config();
 
 
 
-const UploadSchema = new Schema({
-  activity_id: {type:Array}, // could be activity/LTG/STG id 
+const StudentSchema = new Schema({
+  Username:   {type:String, required:true}, // could be activity/LTG/STG id 
+  University: {type:String, required:true}, // could be activity/LTG/STG id 
+  Email:      {type:String, required:true}, // could be activity/LTG/STG id 
 
 },{timestamps : true});
 
 
-const NoteModel = mongoose.model("student", UploadSchema);
+const NoteModel = mongoose.model("student", StudentSchema);
 
 export default NoteModel;
