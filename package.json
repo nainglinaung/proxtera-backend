@@ -9,11 +9,12 @@
     "clean": "rm -rf .nyc_output build coverage && mkdir build",
     "dev": "cross-env DEBUG=dev nodemon --ignore 'uploads/*' --exec babel-node src/index.js",
     "generate": "cross-env DEBUG=dev nodemon --ignore 'uploads/*' --exec babel-node generateXLSX.js",
-    "test": "mocha"
+    "test": "mocha --require @babel/register"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.19.0",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.2",
@@ -27,10 +28,13 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.1",
+    "@babel/core": "^7.19.1",
     "@babel/node": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.19.1",
     "@babel/preset-env": "^7.10.1",
+    "@babel/register": "^7.18.9",
     "@faker-js/faker": "^7.5.0",
+    "chai": "^4.3.6",
     "eslint": "^8.10.0",
     "mocha": "^10.0.0"
   }
