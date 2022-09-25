@@ -1,5 +1,5 @@
 const studentRouter = require("express").Router();
-import studentController from '../controller/student.controller'
+import studentController from '../controllers/student.controller'
 import catchAsync from '../middleware/catchAsync';
 
 

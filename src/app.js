@@ -8,7 +8,6 @@ import { NotFoundError } from "./helpers/errors";
 import Router from "./routes/index.route";
 
 import path from 'path'
-import cors from 'cors'
 const app = express();
 const http = require('http').Server(app);
 
@@ -30,16 +29,12 @@ app.use(errorHandler);
 
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, '/views'));
-passport.initialize()
-app.use(cors())
+
 app.use('/', Router);
 
 
 
-app.post('/upload', upload.single('imageUpload'), function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  return res.json({file:`${process.env.api_host}/uploads/${req.file.filename}`});
-})
+
 
 
 app.get("/", (_, res) => {
