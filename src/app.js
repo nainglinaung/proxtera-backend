@@ -5,7 +5,7 @@ import { config } from "dotenv";
 
 import errorHandler from "./middleware/errorHandler";
 import { NotFoundError } from "./helpers/errors";
-import testRouter from "./routes/test.route";
+import Router from "./routes/index.route";
 
 import path from 'path'
 import cors from 'cors'
@@ -32,7 +32,7 @@ app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, '/views'));
 passport.initialize()
 app.use(cors())
-app.use('/auth', authRouter);
+app.use('/', Router);
 
 
 
