@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "7abf565d-0d37-4377-b88d-cfb0414ed905",
+		"name": "Proxtera",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2092802"
+	},
+	"item": [
+		{
+			"name": "Upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "spreadsheet",
+							"type": "file",
+							"src": "/C:/Users/naing/Desktop/dump/test.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/student/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"student",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entry",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "spreadsheet",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "http://localhost:5000",
+			"type": "string"
+		}
+	]
+}
